@@ -110,7 +110,6 @@ static void skipWhitespace() {
   }                           
 }  
 
-
 static TokenType checkKeyword(int start, int length,      
     const char* rest, TokenType type) {                   
   if (scanner.current - scanner.start == start + length &&
@@ -226,4 +225,5 @@ Token scanToken() {
   }
 
   return errorToken("Unexpected character.");
-} 
+}
+
