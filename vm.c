@@ -23,6 +23,7 @@ VM vm;
 static void resetStack() {
     vm.stackTop = vm.stack; 
     vm.objects = NULL;
+    initTable(&vm.strings);
 } 
 
 static void runtimeError(const char* format, ...) {
@@ -169,6 +170,7 @@ InterpretResult interpret(const char* source) {
 }  
 
 void freeVM() {    
+    freeTable(&vm.strings);
     freeObjects();
 }  
 
